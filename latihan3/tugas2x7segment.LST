@@ -1,0 +1,54 @@
+8051 Assembler           Version 1.00   11/12/121 13:01:59    Page 1
+C:\win8051\projects\latihan3\tugas2x7segment.a51
+
+
+
+    1 0000              ORG 0H
+    2 0000              
+    3 0000              MULAI:
+    4 0000 90002A       MOV     DPTR,#Kamar
+    5 0003 7E02         MOV     R6,#02H
+    6 0005 7902         MOV     R1,#02H
+    7 0007              
+    8 0007              ULANG:
+    9 0007 E4           CLR     A
+   10 0008 93           MOVC    A,@A+DPTR
+   11 0009 A3           INC     DPTR
+   12 000A F590         MOV     P1,A
+   13 000C E9           MOV     A,R1
+   14 000D F5B0         MOV     P3,A
+   15 000F 03           RR      A
+   16 0010 F9           MOV     R1,A
+   17 0011 111D         ACALL   DELAY
+   18 0013 759000       MOV     P1,#00H
+   19 0016 111D         ACALL   DELAY
+   20 0018 DEED         DJNZ    R6,ULANG
+   21 001A 020000       JMP     MULAI
+   22 001D              
+   23 001D              DELAY:
+   24 001D 7A02         MOV     R2,#02H
+   25 001F              DELAY1:
+   26 001F 7B03         MOV     R3,#03H
+   27 0021              DELAY2:
+   28 0021 7CFF         MOV     R4,#0FFH
+   29 0023 DCFE         DJNZ    R4,$
+   30 0025 DBFA         DJNZ    R3,DELAY2
+   31 0027 DAF6         DJNZ    R2,DELAY1
+   32 0029              
+   33 0029 22           RET
+   34 002A              ; DELAY
+   35 002A              
+   36 002A              KAMAR:
+   37 002A 86 DB        DB      086H,0DBH
+   38 002C              
+   39 002C              END
+
+Defined Symbols:
+
+Defined Labels:
+  DELAY                                     00001D  29
+  DELAY1                                    00001F  31
+  DELAY2                                    000021  33
+  KAMAR                                     00002A  42
+  MULAI                                     000000  0
+  ULANG                                     000007  7

@@ -1,0 +1,54 @@
+8051 Assembler           Version 1.00   11/12/121 17:36:01    Page 1
+C:\win8051\projects\latihan3\keypad-full-7segment.a51
+
+
+
+    1 0000              ORG 0H
+    2 0000              
+    3 0000              SATU:
+    4 0000 75A0FE       MOV     P2,#11111110B
+    5 0003 20A406       JB      P2.4,DUA
+    6 0006 759079       MOV     P1,#01111001B
+    7 0009 020000       LJMP    SATU
+    8 000C              
+    9 000C              DUA:
+   10 000C 20A506       JB      P2.5,TIGA
+   11 000F 759024       MOV     P1,#00100100B
+   12 0012 020000       LJMP    SATU
+   13 0015              
+   14 0015              TIGA:
+   15 0015 20A609       JB      P2.6,EMPAT
+   16 0018 759030       MOV     P1,#00110000B
+   17 001B 020000       LJMP    SATU
+   18 001E              
+   19 001E              DOWN:
+   20 001E 020021       LJMP    EMPAT
+   21 0021              
+   22 0021              EMPAT:
+   23 0021 75A1F3       MOV     P2.1,#11110011B
+   24 0024 20A406       JB      P2.4,LIMA
+   25 0027 759179       MOV     P1.1,#01111001B
+   26 002A 020021       LJMP    EMPAT
+   27 002D              
+   28 002D              LIMA:
+   29 002D 20A506       JB      P2.5,ENAM
+   30 0030 759124       MOV     P1.1,#00100100B
+   31 0033 020021       LJMP    EMPAT
+   32 0036              
+   33 0036              ENAM:
+   34 0036 20A6E8       JB      P2.6,EMPAT
+   35 0039 759130       MOV     P1.1,#00110000B
+   36 003C 020021       LJMP    EMPAT
+   37 003F              
+   38 003F              END
+
+Defined Symbols:
+
+Defined Labels:
+  DOWN                                      00001E  30
+  DUA                                       00000C  12
+  EMPAT                                     000021  33
+  ENAM                                      000036  54
+  LIMA                                      00002D  45
+  SATU                                      000000  0
+  TIGA                                      000015  21

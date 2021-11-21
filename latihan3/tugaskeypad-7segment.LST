@@ -1,0 +1,35 @@
+8051 Assembler           Version 1.00   11/12/121 14:08:13    Page 1
+C:\win8051\projects\latihan3\tugaskeypad-7segment.a51
+
+
+
+    1 0000              ORG 0H
+    2 0000              
+    3 0000              SATU:
+    4 0000 75A0FE       MOV     P2,#11111110B
+    5 0003 20A406       JB      P2.4,DUA
+    6 0006 759079       MOV     P1,#01111001B
+    7 0009 020000       LJMP    SATU
+    8 000C              
+    9 000C              DUA:
+   10 000C 20A506       JB      P2.5,TIGA
+   11 000F 759024       MOV     P1,#00100100B
+   12 0012 020000       LJMP    SATU
+   13 0015              
+   14 0015              TIGA:
+   15 0015 20A6E8       JB      P2.6,SATU
+   16 0018 759030       MOV     P1,#00110000B
+   17 001B 020000       LJMP    SATU
+   18 001E              
+   19 001E              OK:
+   20 001E 020000       LJMP    SATU
+   21 0021              
+   22 0021              END
+
+Defined Symbols:
+
+Defined Labels:
+  DUA                                       00000C  12
+  OK                                        00001E  30
+  SATU                                      000000  0
+  TIGA                                      000015  21
